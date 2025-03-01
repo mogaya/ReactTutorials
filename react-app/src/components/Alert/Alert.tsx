@@ -1,4 +1,6 @@
 import React, { ReactNode } from "react";
+import { MdCancel } from "react-icons/md";
+import styles from "./Alert.module.css";
 
 interface Props {
   children: ReactNode;
@@ -7,15 +9,21 @@ interface Props {
 
 function Alert({ children, onClose }: Props) {
   return (
-    <div className="alert alert-primary alert-dismissible fade show">
+    <div className={styles.alert}>
       {children}
-      <button
+      {/* <button
         type="button"
         className="btn-close"
         data-bs-dismiss="alert"
         aria-label="Close"
         onClick={onClose}
-      ></button>
+      ></button> */}
+      <MdCancel
+        // className={styles.alert}
+        onClick={onClose}
+        color="red"
+        size="20"
+      />
     </div>
   );
 }
